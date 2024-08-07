@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Restaurant Resevation - Login Page</title>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/loginpage.css" />
+
+    <script src="assets/js/login.js"></script>
+  </head>
+
+  <body>
+    <div class="system_name">
+      <h2>Restaurant Resevation</h2>
+    </div>
+
+    <div class="login_page">
+      <div id="container1">
+        <div class="login">
+          <h3>Login</h3>
+
+          <form action="loginUser.php" method="post">
+            <input
+              type="text"
+              id="username"
+              name="account"
+              placeholder="Account"
+              required
+              onkeyup="this.value=this.value.replace(/\s+/g,'')"
+            />
+            <div class="tab"></div>
+            <input
+              type="text"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+              onkeyup="this.value=this.value.replace(/\s+/g,'')"
+            />
+            <div class="tab"></div>
+            <input
+              type="submit"
+              value="Login"
+              class="submit"
+            />
+          </form>
+
+          <h5 onclick="show_hide()">Create Account</h5>
+        </div>
+        <!-- login end-->
+      </div>
+      <!-- container1 end-->
+    </div>
+    <!-- login_page end-->
+
+    <div class="signup_page">
+      <div id="container2">
+        <div class="signup">
+          <h3>Sign Up</h3>
+
+          <form action="createUser.php" method="post">
+            <input
+              type="text"
+              id="fullname"
+              name="fullname"
+              placeholder="Name"
+              required
+            />
+            <div class="tab"></div>
+            <input
+              type="text"
+              id="username2"
+              name="account"
+              placeholder="Account"
+              required
+            />
+            <div class="tab"></div>
+            <input
+              type="text"
+              id="password2"
+              name="password"
+              placeholder="Password"
+              required
+              pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$"
+              oninput="setCustomValidity('');"
+              oninvalid="setCustomValidity('請輸入正確的密碼格式:含英數至少六個字元');"
+            />
+            <div class="tab"></div>
+            <input
+              type="text"
+              id="comfirm_password"
+              name="comfirm_password"
+              placeholder="comfirm password"
+              required
+              oninput="setCustomValidity('');"
+              onchange="if(document.getElementById('password2').value != document.getElementById('comfirm_password').value){setCustomValidity('密碼不吻合');}"
+            />
+            <div class="tab"></div>
+            <input type="submit" value="Create Account" class="submit" />
+          </form>
+
+          <h5 onclick="show_hide()">Login Account</h5>
+        </div>
+        <!-- signup end-->
+      </div>
+    </div>
+    <!-- signup_page end-->
+
+    <div id="copyright">
+      <h4>Copyright © 2018 RoseWang All rights reserved</h4>
+      <!--因為js，會跑版-->
+    </div>
+  </body>
+</html>
