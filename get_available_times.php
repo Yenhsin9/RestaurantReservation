@@ -12,6 +12,7 @@ include 'db_connection.php';
 // 獲取用戶選擇的日期和餐廳類型
 $date = $_GET['date'] ?? '';
 $type = $_GET['type'] ?? '';
+$memberID = $_SESSION['memberID']; 
 
 // 設置根據餐廳類型可用的時間段
 if ($type == "Italy" || $type == "France") {
