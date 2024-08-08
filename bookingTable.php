@@ -33,7 +33,7 @@
           
         }else{
             echo '<tr align="center" >
-                <td colspan="7">購物車目前是空的喔！</td>
+                <td colspan="7">No restaurant reservations yet！</td>
                 <tr>';
             echo '</table>';
             echo '</div>';

@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($check_existing_sql);
     if ($result->num_rows > 0) {
         echo "You already have a reservation at " . $type . " restaurant today, can’t make a reservation again. <br> ";
-        echo "<a href='javascript:history.back()'>Back to reservation page</a>";
+        echo "<a href='mainpage.php'>Back to reservation page</a>";
     }else{
         $InsertRev_sql = "INSERT INTO reservations (Re_id, 	Name, phone_number, date, time,people, type) VALUES ('$memberID', '$Fullname', '$Phone', '$date', '$time','$people', '$type')";
         if ($conn->query($InsertRev_sql) === TRUE) {

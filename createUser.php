@@ -48,8 +48,8 @@ try {
 } catch(PDOException $e) {
     $errorMessage = $e->getMessage(); 
     if (strpos($errorMessage, "Duplicate account") !== false) {
-        echo "此帳號已經存在！請重新填寫！<br> ";
-		echo "<a href='javascript:history.back()'>返回上一頁</a>";
+        echo "This account already exists！<br> ";
+		echo "<a href='login.html'>Back to previous page</a>";
     } else {
         // others
     }
