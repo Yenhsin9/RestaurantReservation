@@ -1,7 +1,7 @@
 <?php
     $host = 'localhost';
     $dbuser ='root';
-    $dbpassword = '';
+    $dbpassword = ''; //enter your own password here
     $dbname = 'restaurant_reservation';
 
     // Connecting to and selecting a MySQL database
