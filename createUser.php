@@ -4,37 +4,40 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // ******** update your personal settings ******** 
-$servername = "140.122.184.129:3310";
-$username = "team20";
-$password = "5EGyOY_grkiT[U0j";
-$dbname = "team20";
+$host = 'localhost';
+$dbuser ='root';
+$dbpassword = '';
+$dbname = 'restaurant_reservation';
+
+// Connecting to and selecting a MySQL database
+$conn = mysqli_connect($host,$dbuser,$dbpassword,$dbname);
 
 try {
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpassword);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     if (isset($_POST['fullname']) && isset($_POST['account']) && isset($_POST['password']) && isset($_POST['comfirm_password'])) {
         // 取得當前最大的 id 並轉換為數值型
-        $checkId_sql = 'SELECT MAX(CAST(id AS UNSIGNED)) AS maxNum FROM login';
+        $checkId_sql = 'SELECT MAX(ID_num) AS maxNum FROM user';
         $check_result = $pdo->query($checkId_sql);
         $row = $check_result->fetch(PDO::FETCH_ASSOC);
-        $maxNum = intval($row['maxNum']) + 1;
+        $maxNum = $row['maxNum'] + 1;
         
         // 將最大 id 轉換為字串
-        $strmaxNum = strval($maxNum);
+        // $strmaxNum = strval($maxNum);
         $Fullname = $_POST['fullname'];
         $Account = $_POST['account'];
         $Password = $_POST['password'];
 
-        $stmt = $pdo->prepare("INSERT INTO login (id, account, password, fullname) VALUES (?, ?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO user (ID_num, Account, password, Name) VALUES (?, ?, ?, ?)");
         if ($stmt) {
             //綁定參數
-            $stmt->bindParam(1, $strmaxNum, PDO::PARAM_STR);
+            $stmt->bindParam(1, $maxNum, PDO::PARAM_STR);
             $stmt->bindParam(2, $Account, PDO::PARAM_STR);
             $stmt->bindParam(3, $Password, PDO::PARAM_STR);
             $stmt->bindParam(4, $Fullname, PDO::PARAM_STR);
             
             if ($stmt->execute()) {
-                echo "新增成功!!<br> <a href='login.html'>返回主頁</a>";
+                echo "Create successfully!!<br> <a href='login.html'>Back to Login page</a>";
                 exit;
             } 
             $stmt->closeCursor();

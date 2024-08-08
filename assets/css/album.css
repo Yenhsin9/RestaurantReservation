@@ -1,0 +1,164 @@
+.price_tw {
+    color: #1859ca;
+    font-size: 18px;
+}
+
+.price_sale {
+    color: #ff0000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.prod_artist {
+    color: #007399;
+}
+
+.error_msg {
+    display: block;
+    padding: 8px 35px 8px 14px;
+    background-color: #eddbe3;
+    border-color: #e8d1df;
+    color: #bd4247;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.success_msg {
+    display: block;
+    padding: 8px 35px 8px 14px;
+    background-color: #ccddbb;
+    border-color: #c6d4aa;
+    color: #669533;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.prd-content {
+    /* padding-left: 50px;
+    padding-right: 50px; */
+    overflow: hidden; /* 確保浮動元素不會影響父容器 */
+}
+
+div.element .prd-box {
+    padding: 6px;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+
+section {
+    line-height: 1.5em;
+}
+
+.prd-img {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.prd-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.shorten {
+    min-height: 36px; /* 設置 .shorten 元素的最小高度 */
+    overflow: hidden;
+    float: left;
+    line-height: 18px;
+    white-space: normal; /* 自動換行 */
+    padding-left: 5px;
+    position: relative; /* 讓 ::after 伪元素相對於 .shorten 元素定位 */
+}
+
+
+.shorten_name {
+    height: 18px;
+    overflow: hidden;
+    float: left;
+    line-height: 18px;
+    clear: both;
+    padding-left: 5px;
+}
+
+.shorten_click {
+    height: auto;
+    overflow: hidden;
+    float: left;
+    line-height: 16px;
+    clear: both;
+}
+
+div.container div.prd-content section.album_list {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between;  */
+    /* 均勻分配空間 */
+    margin: -10px 0; /* 避免首行和尾行的 margin 被折疊 */
+}
+
+div.container div.prd-content section.album_list div.element {
+    width: 20.5%; /* 每個專輯項目寬度減去間距 */
+    min-height: 235px;
+    overflow: hidden;
+    margin: 10px 1.6%; /* 上下間距 */
+    font-size: 13px;
+    box-sizing: border-box; /* 包含 padding 和 border 在內 */
+    transition: all .8s;
+}
+
+div.container .shorten_click form button[type="submit"] {
+    background-color: gray;
+    color: white;
+    padding: 3px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+div.container input[type="number"] {
+    margin-left: 5px;
+}
+
+button[type="submit"] {
+    margin-left: 10px;
+}
+
+@media (max-width: 767px) {
+    div.prd-content section.album_list div.element {
+        width: calc(50% - 16px); /* 在小尺寸螢幕上，每個專輯項目寬度為一半 */
+    }
+}
+
+@media (max-width: 479px) {
+    div.prd-content section.album_list div.element {
+        width: calc(100% - 16px); /* 在超小尺寸螢幕上，每個專輯項目寬度為整個行寬 */
+    }
+}
+
+/* 如果專輯數量少於五張，將 justify-content 設置為 flex-start 以保持相同的排列方式 */
+@media (min-width: 768px) and (max-width: 991px) {
+    div.prd-content section.album_list {
+        justify-content: center; /* 居中 */
+    }
+
+    div.prd-content section.album_list div.element {
+        width: calc(30% - 16px); /* 每個專輯項目寬度減去間距 */
+    }
+}
