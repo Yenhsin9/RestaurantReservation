@@ -1,5 +1,5 @@
 <?php
-    // 開啟錯誤訊息
+    // error messgae
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
     

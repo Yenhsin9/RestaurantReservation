@@ -1,25 +1,10 @@
 <?php
-// 開啟錯誤訊息
+// error message
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-// ******** update your personal settings ******** 
-$host = 'localhost';
-$dbuser ='root';
-$dbpassword = '';
-$dbname = 'restaurant_reservation';
 
-// Connecting to and selecting a MySQL database
-$conn = mysqli_connect($host,$dbuser,$dbpassword,$dbname);
+include 'db_connection.php';
 
-if (!$conn->set_charset("utf8")) {
-    printf("Error loading character set utf8: %s\n", $conn->error);
-    exit();
-}
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
 if (isset($_POST['account']) && isset($_POST['password'])) {
 	$Account = $_POST['account'];
 	$Password = $_POST['password'];

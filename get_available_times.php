@@ -6,18 +6,8 @@ ini_set('display_errors', 1);
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-// 連接到數據庫
-$host = 'localhost';
-$dbuser = 'root';
-$dbpassword = '';
-$dbname = 'restaurant_reservation';
-$memberID = $_SESSION['memberID'];
-$conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
 
-// 確保連接成功
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'db_connection.php';
 
 // 獲取用戶選擇的日期和餐廳類型
 $date = $_GET['date'] ?? '';

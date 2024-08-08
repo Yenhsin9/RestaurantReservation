@@ -3,14 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// ******** update your personal settings ******** 
-$host = 'localhost';
-$dbuser ='root';
-$dbpassword = '';
-$dbname = 'restaurant_reservation';
-
-// Connecting to and selecting a MySQL database
-$conn = mysqli_connect($host,$dbuser,$dbpassword,$dbname);
+include 'db_connection.php';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpassword);

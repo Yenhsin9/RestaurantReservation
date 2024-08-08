@@ -1,24 +1,12 @@
 <?php
-// 開啟錯誤訊息
+// error message
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
  if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-// ******** update your personal settings ******** 
-$host = 'localhost';
-$dbuser ='root';
-$dbpassword = '';
-$dbname = 'restaurant_reservation';
-
-// Connecting to and selecting a MySQL database
-$conn = mysqli_connect($host,$dbuser,$dbpassword,$dbname);
-
-if (!$conn->set_charset("utf8")) {
-    printf("Error loading character set utf8: %s\n", $conn->error);
-    exit();
-}
+include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $type = $_POST['type'];
