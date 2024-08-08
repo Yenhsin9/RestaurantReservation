@@ -19,6 +19,9 @@
                             <?php include 'printFullname.php'; ?>
                         </li>
                         <li class="scroll-to-section">
+                            <a href="bookingPage.php">Reservation Table</a>
+                        </li>
+                        <li class="scroll-to-section">
                             <a href="membercenter.php">Member Informaiton</a>
                         </li>
                         <li class="scroll-to-section">
